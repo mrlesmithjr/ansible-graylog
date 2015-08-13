@@ -17,6 +17,8 @@ Role Variables
 enable_graylog_server: true
 enable_graylog_web: true
 es_cluster_name: graylog
+es_data_node: true  #defines if node should be a data node in the cluster...default is true...define here or in group_vars/group
+es_master_node: true  #defines if node should be a master node in the cluster...default is true...define here or in group_vars/group
 es_replicas: 0 #set to the number of replicas to set for the elasticsearch cluster - this applies to graylog server settings and elasticsearch
 es_shards: 4 #set to the number of shards to set for the elasticsearch cluster - this applies to graylog server settings and elasticsearch
 graylog_package_url: https://packages.graylog2.org/repo/packages/graylog-1.1-repository-ubuntu14.04_latest.deb
@@ -32,6 +34,7 @@ port_redirects:  #define ports to port forward from system to graylog_server - o
   - syslog_dport: 514
     graylog_dport: 10514
     prot: udp
+
 ````
 
 Dependencies
