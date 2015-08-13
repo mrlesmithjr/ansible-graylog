@@ -17,6 +17,9 @@ install:
   - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
 
 script:
+  # pull down additional roles
+  - "ansible-galaxy install mrlesmithjr.snmpd"
+  
   # Check the role/playbook's syntax.
   - "ansible-playbook -i tests/inventory tests/$SITE --syntax-check"
 
