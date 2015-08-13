@@ -105,12 +105,10 @@
 # Set the number of shards (splits) of an index (5 by default):
 #
 #index.number_of_shards: 5
-index.number_of_shards: {{es_shards}}
 
 # Set the number of replicas (additional copies) of an index (1 by default):
 #
 #index.number_of_replicas: 1
-index.number_of_replicas: {{es_replicas}}
 
 # Note, that for development on a local machine, with small indices, it usually
 # makes sense to "disable" the distributed features:
@@ -390,5 +388,33 @@ index.number_of_replicas: {{es_replicas}}
 ### Specific settings set below using Ansible
 {% if es_cluster_name is defined %}
 cluster.name: {{ es_cluster_name }}
+{% if es_replicas is defined %}
+index.number_of_replicas: {{ es_replicas }}
+{% endif %}
+{% if es_shards is defined %}
+index.number_of_shards: {{ es_shards }}
+{% endif %}
+{% endif %}
+{% if es_data_node is defined %}
+node.data: {{ es_data_node|lower }}
+{% endif %}
+{% if es_master_node is defined %}
+node.master: {{ es_master_node|lower }}
 {% endif %}
 node.name: {{ ansible_hostname }}
+bootstrap.mlockall: true
+{% if es_network_publish_host is defined %}
+network.publish_host: {{ es_network_publish_host }}
+{% endif %}
+{% if es_cluster_setup is defined and es_cluster_setup %}
+{%   if es_min_master_nodes is defined %}
+discovery.zen.minimum_master_nodes: {{ es_min_master_nodes }}
+{%   endif %}
+{% endif %}
+{% if es_memory_tuning is defined %}
+{%   for item in es_memory_tuning %}
+{%     if item.set %}
+{{ item.name }}: {{ item.value }}
+{%     endif %}
+{%   endfor %}
+{% endif %}
