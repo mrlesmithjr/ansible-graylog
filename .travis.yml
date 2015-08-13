@@ -18,8 +18,8 @@ install:
 
 script:
   # pull down additional roles
-  - "ansible-galaxy install mrlesmithjr.snmpd"
-  
+  - "ansible-galaxy install mrlesmithjr.graylog"
+
   # Check the role/playbook's syntax.
   - "ansible-playbook -i tests/inventory tests/$SITE --syntax-check"
 
