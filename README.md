@@ -55,6 +55,27 @@ ansible-timezone
 ansible-elasticsearch
 ansible-mongodb
 
+````
+
+requirements.yml
+---
+- src: https://github.com/mrlesmithjr/ansible-snmpd
+- src: https://github.com/mrlesmithjr/ansible-timezone
+- src: https://github.com/mrlesmithjr/ansible-elasticsearch
+- src: https://github.com/mrlesmithjr/ansible-mongodb
+- src: https://github.com/mrlesmithjr/ansible-graylog
+- src: mrlesmithjr.snmpd
+- src: mrlesmithjr.timezone
+- src: mrlesmithjr.elasticsearch
+- src: mrlesmithjr.mongodb
+- src: mrlesmithjr.graylog
+````
+
+To install dependencies you can execute the following.
+````
+sudo ansible-galaxy install -r requirements.yml -f
+````
+
 Example Playbook
 ----------------
 
