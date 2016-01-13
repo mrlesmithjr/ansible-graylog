@@ -11,7 +11,7 @@ Vagrant.configure(2) do |config|
     graylog.vm.hostname = "graylog"
 
     graylog.vm.network :private_network, ip: "192.168.202.201"
-    graylog.vm.network "forwarded_port", guest: 80, host: 8080
+    graylog.vm.network "forwarded_port", guest: 9000, host: 9000
     graylog.vm.network "forwarded_port", guest: 9200, host: 9200
 
     graylog.vm.provider "virtualbox" do |vb|
