@@ -1,5 +1,5 @@
 ---
-- name: provisions owncloud
+- name: provisions graylog
   hosts: all
   sudo: true
   vars:

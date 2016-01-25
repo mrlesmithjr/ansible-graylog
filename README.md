@@ -10,6 +10,13 @@ Requirements
 
 None
 
+Vagrant
+-------
+Spin up Environment under Vagrant to test.
+````
+vagrant up
+````
+
 Role Variables
 --------------
 ````
@@ -50,14 +57,15 @@ mrlesmithjr.elasticsearch
 mrlesmithjr.mongodb
 ````
 #### GitHub
+````
 ansible-snmpd
 ansible-timezone
 ansible-elasticsearch
 ansible-mongodb
-
 ````
 
 requirements.yml
+````
 ---
 - src: https://github.com/mrlesmithjr/ansible-snmpd
 - src: https://github.com/mrlesmithjr/ansible-timezone
