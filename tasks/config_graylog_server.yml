@@ -16,3 +16,9 @@
     owner: "{{ graylog_user }}"
     group: "{{ graylog_group }}"
     mode: "u=rwx,g=rwx,o=rx"
+
+- name: config_graylog_server | Ensuring Graylog Server Service Is Enabled And Started
+  service:
+    name: "graylog-server"
+    state: "started"
+    enabled: yes
