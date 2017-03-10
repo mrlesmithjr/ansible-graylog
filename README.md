@@ -3,6 +3,11 @@ Role Name
 
 An [Ansible] role to install [Graylog]
 
+Build Status
+------------
+
+[![Build Status](https://travis-ci.org/mrlesmithjr/ansible-graylog.svg?branch=master)](https://travis-ci.org/mrlesmithjr/ansible-graylog)
+
 Requirements
 ------------
 
