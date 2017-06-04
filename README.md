@@ -40,8 +40,13 @@ graylog_es_cluster_name: 'graylog'
 # Defines if node should be a data node in the cluster...default is true
 graylog_es_data_node: true
 
+graylog_es_discovery_zen_ping_unicast_hosts:
+  - 'localhost'
+
 # Defines if node should be a master node in the cluster...default is true
 graylog_es_master_node: true
+
+graylog_es_network_host: 127.0.0.1
 
 graylog_es_replicas: '0'
 graylog_es_shards: '4'
@@ -54,6 +59,8 @@ graylog_install_default_java_jre: false
 
 graylog_message_journal_dir: '/data/journal'
 graylog_message_journal_enabled: true
+
+graylog_mongodb_uri: 'mongodb://localhost/graylog'
 
 graylog_redhat_package_info:
   file: 'graylog-{{ graylog_version }}-repository_latest.rpm'
