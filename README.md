@@ -16,6 +16,15 @@ Install required [Ansible] roles:
 sudo ansible-galaxy install -r requirements.yml
 ```
 
+You **MUST** define the following vars:
+```
+# Generate new pw using...pwgen -N 1 -s 96
+graylog_server_password_secret: []
+
+# Generate new pw using...echo -n yourpassword | shasum -a 256
+graylog_server_root_password: []
+```
+
 Vagrant
 -------
 Spin up Environment under Vagrant to test.
@@ -48,8 +57,8 @@ graylog_es_master_node: true
 
 graylog_es_network_host: 127.0.0.1
 
-graylog_es_replicas: '0'
-graylog_es_shards: '4'
+graylog_es_replicas: 0
+graylog_es_shards: 4
 
 graylog_group: 'graylog'
 
@@ -73,12 +82,10 @@ graylog_rest_listen_uri: 'http://127.0.0.1:9000/api/'
 graylog_server_master: true
 
 # Generate new pw using...pwgen -N 1 -s 96
-graylog_server_password_secret: 'X4S0oYP9DcGjgpX6uAGOfHS3NbB5OpSHWVKwQP94mJxaDCM3WPP0QP5zd8uqZs2tDBPiKET6r81IJEumQkqAk6WOnqKwvCu1'
-# graylog_server_rest_listen_uri: http://127.0.0.1:12900/
+graylog_server_password_secret: []
 
-# Hashed password here is "P@55w0rd"
 # Generate new pw using...echo -n yourpassword | shasum -a 256
-graylog_server_root_password: 'fd74bdd901857b89f5737e5352a2a8a2d1f000aa4bed4aee47c95afaa37d0f99'
+graylog_server_root_password: []
 
 # Define Syslog Input Protocol udp|tcp
 graylog_server_syslog_input_protocol: 'udp'
@@ -86,16 +93,13 @@ graylog_server_syslog_input_protocol: 'udp'
 graylog_user: 'graylog'
 
 # Define Graylog Version to Install
-graylog_version: '2.2'
+graylog_version: 2.2
 
 # Generate new pw using...pwgen -N 1 -s 96
 graylog_web_application_secret: 'X4S0oYP9DcGjgpX6uAGOfHS3NbB5OpSHWVKwQP94mJxaDCM3WPP0QP5zd8uqZs2tDBPiKET6r81IJEumQkqAk6WOnqKwvCu1'
 
 # Web interface listen URI.
 graylog_web_listen_uri: 'http://127.0.0.1:9000/'
-
-# Set to same as graylog_server_rest_listen_uri unless not installing both server and web on same host
-graylog_web_server_uri: '{{ graylog_server_rest_listen_uri }}'
 ```
 
 Dependencies
