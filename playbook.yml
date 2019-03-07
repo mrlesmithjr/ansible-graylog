@@ -2,12 +2,12 @@
 - hosts: test-nodes
   become: true
   vars:
-    es_major_version: '2.x'
-    es_minor_version: '2.4.1'
-    graylog_rest_listen_uri: 'http://0.0.0.0:9000/api/'
-    graylog_web_listen_uri: 'http://0.0.0.0:9000/'
-    graylog_version: '2.2'
-    pri_domain_name: 'test.vagrant.local'
+    es_major_version: 2.x
+    es_minor_version: 2.4.1
+    graylog_rest_listen_uri: http://0.0.0.0:9000/api/
+    graylog_web_listen_uri: http://0.0.0.0:9000/
+    graylog_version: 2.2
+    pri_domain_name: test.vagrant.local
   roles:
     - role: ansible-timezone
     - role: ansible-oracle-java8
